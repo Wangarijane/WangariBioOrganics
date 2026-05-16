@@ -15,7 +15,7 @@ const ai = new GoogleGenAI({
   }
 });
 
-async function startServer() {
+async function createServer() {
   const app = express();
   const PORT = 3000;
 
@@ -71,9 +71,15 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+  return { app, PORT };
+}
+
+if (process.env.NODE_ENV !== "test" && process.env.VERCEL !== "1") {
+  createServer().then(({ app, PORT }) => {
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
   });
 }
 
-startServer();
+export { createServer };
