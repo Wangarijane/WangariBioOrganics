@@ -44,7 +44,7 @@ const ALL_PRODUCTS: Product[] = [
     name: 'Premium Sun-Dried Hibiscus',
     price: 850,
     category: 'Botanical Teas',
-    image: 'https://images.unsplash.com/photo-1596560548464-f010549b84d7?auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1594336040700-38260e0a96b1?auto=format&fit=crop&q=80',
     badge: 'Direct Trade',
     description: 'Meticulously sorted, bioactive hibiscus. Perfect for antioxidant-rich teas and wellness infusions. Hand-harvested at peak potency.'
   },
@@ -202,6 +202,29 @@ export default function App() {
     }).filter(item => item.quantity > 0));
   };
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const id = href.replace('#', '');
+      if (id === '') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const element = document.getElementById(id);
+        if (element) {
+          const navHeight = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - navHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+      setIsMobileMenuOpen(false);
+    }
+  };
+
   const cartCountTotal = cartItems.reduce((acc, item) => acc + item.quantity, 0);
   const cartTotal = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
@@ -325,6 +348,7 @@ export default function App() {
                 <a 
                   key={item.name}
                   href={item.href} 
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="nav-link text-[0.75rem] font-bold text-wangari-green uppercase tracking-[0.1em] transition-all duration-300 flex items-center gap-2 hover:text-wangari-terracotta"
                 >
                   {item.name}
@@ -473,6 +497,7 @@ export default function App() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
                 <a 
                   href="#botanicals"
+                  onClick={(e) => handleNavClick(e, '#botanicals')}
                   className="w-full sm:w-auto px-12 py-5 bg-wangari-cream text-wangari-green rounded-full text-[0.85rem] font-black uppercase tracking-[0.2em] hover:bg-wangari-terracotta hover:text-wangari-cream transition-all duration-500 shadow-2xl hover:shadow-wangari-terracotta/40 transform hover:-translate-y-1 group"
                 >
                   Shop the Collection
@@ -480,6 +505,7 @@ export default function App() {
                 </a>
                 <a 
                   href="#farmers" 
+                  onClick={(e) => handleNavClick(e, '#farmers')}
                   className="w-full sm:w-auto px-12 py-5 bg-transparent border-2 border-wangari-cream/30 text-wangari-cream rounded-full text-[0.85rem] font-black uppercase tracking-[0.2em] hover:bg-wangari-cream hover:text-wangari-green transition-all duration-500 backdrop-blur-sm"
                 >
                   Our Philosophy
@@ -632,7 +658,7 @@ export default function App() {
               >
                 <div className="relative aspect-square lg:aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl group">
                   <img 
-                    src="https://images.unsplash.com/photo-1595806659616-c3cc265aa8de?auto=format&fit=crop&q=80" 
+                    src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80" 
                     alt="Kenyan Farmers" 
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000"
                     referrerPolicy="no-referrer"
