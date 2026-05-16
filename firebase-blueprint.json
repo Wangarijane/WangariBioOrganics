@@ -1,0 +1,24 @@
+{
+  "entities": {
+    "order": {
+      "title": "Order",
+      "description": "A customer order for botanical products.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "items": { "type": "array" },
+        "total": { "type": "number" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "items", "total", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "orders/{orderId}": {
+      "schema": "order",
+      "description": "Customer orders collection"
+    }
+  }
+}
