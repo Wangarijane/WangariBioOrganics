@@ -44,7 +44,7 @@ const ALL_PRODUCTS: Product[] = [
     name: 'Premium Sun-Dried Hibiscus',
     price: 850,
     category: 'Botanical Teas',
-    image: 'https://images.unsplash.com/photo-1596755431610-18e388bd669f?auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1596560548464-f010549b84d7?auto=format&fit=crop&q=80',
     badge: 'Direct Trade',
     description: 'Meticulously sorted, bioactive hibiscus. Perfect for antioxidant-rich teas and wellness infusions. Hand-harvested at peak potency.'
   },
@@ -62,7 +62,7 @@ const ALL_PRODUCTS: Product[] = [
     name: 'Coffee Husk Exfoliating Scrub',
     price: 1000,
     category: 'Skincare',
-    image: 'https://images.unsplash.com/photo-1615397323286-9a259c402ac4?auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1559591937-e68fb330555d?auto=format&fit=crop&q=80',
     badge: 'Zero Waste',
     description: 'Invigorating exfoliating scrub made from repurposed coffee husks. Promotes circulation and reveals a radiant complexion.'
   },
@@ -71,7 +71,7 @@ const ALL_PRODUCTS: Product[] = [
     name: 'Rosemary Fortifying Hair Mist',
     price: 1200,
     category: 'Hair & Body Care',
-    image: 'https://images.unsplash.com/photo-1632906806536-f084ba33faeb?auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1596464875322-ea1c32729931?auto=format&fit=crop&q=80',
     badge: '100% Recycled',
     description: 'A strengthening botanical mist to promote scalp health and hair vitality. Distilled from fresh farm-grown rosemary.'
   },
@@ -107,7 +107,7 @@ const ALL_PRODUCTS: Product[] = [
     name: 'Highland Spearmint Loose Leaf',
     price: 600,
     category: 'Botanical Teas',
-    image: 'https://images.unsplash.com/photo-1544787210-22d645e7593c?auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1533282211824-4b9e9f67566b?auto=format&fit=crop&q=80',
     badge: 'Direct Trade',
     description: 'Refreshing spearmint harvested from the Aberdare highlands. Naturally caffeine-free and digestive-friendly.'
   }
@@ -305,10 +305,10 @@ export default function App() {
                 </div>
                 <div className="flex flex-col justify-center">
                   <span className={`font-serif leading-none transition-all duration-300 ${isScrolled ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'} font-bold text-wangari-green tracking-tight`}>
-                    Wangari
+                    Wangari Bio Organics
                   </span>
-                  <span className={`text-[0.5rem] sm:text-[0.6rem] uppercase tracking-[0.3em] text-wangari-terracotta mt-1 font-bold transition-all duration-300 ${isScrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100 h-auto'}`}>
-                    Bio Organics
+                  <span className={`text-[0.5rem] sm:text-[0.6rem] uppercase tracking-[0.4em] text-wangari-terracotta mt-1.5 font-black transition-all duration-300 ${isScrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100 h-auto'}`}>
+                    RADIATE FROM WITHIN
                   </span>
                 </div>
               </a>
@@ -606,7 +606,7 @@ export default function App() {
                           })}
                           className="w-full py-5 px-8 bg-wangari-green text-wangari-cream text-[0.7rem] font-black uppercase tracking-[0.25em] rounded-2xl hover:bg-wangari-terracotta transition-all duration-500 shadow-lg hover:shadow-wangari-terracotta/20 flex justify-center items-center group/btn"
                         >
-                          Add to Harvest
+                          Add to Cart
                           <Plus className="ml-2 h-4 w-4 transform group-hover/btn:rotate-90 transition-transform duration-300" />
                         </button>
                       </div>
